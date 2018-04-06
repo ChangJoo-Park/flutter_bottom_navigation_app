@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage>
       body: new TabBarView(
         controller: tabController,
         children: <Widget>[
-          new NewPage("First"),
+          new ScrollablePage(),
           new NewPage("Second"),
           new NewPage("Third"),
         ],
@@ -49,18 +49,123 @@ class _HomePageState extends State<HomePage>
           tabs: <Widget>[
             new Tab(
               icon: new Icon(Icons.favorite),
-              child: new Text('Favorite'),
             ),
             new Tab(
               icon: new Icon(Icons.email),
-              child: new Text('Email'),
             ),
             new Tab(
               icon: new Icon(Icons.laptop),
-              child: new Text('Laptop'),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ScrollablePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new ListView(
+        children: <Widget>[
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.photo_album),
+            title: new Text('Album'),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('Phone'),
+          ),
+        ],
       ),
     );
   }
