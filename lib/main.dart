@@ -24,6 +24,18 @@ class _HomePageState extends State<HomePage>
     new FlatPage("Second"),
     new FlatPage("Third"),
   ];
+  List<Widget> tabList = [
+    new Tab(
+      icon: new Icon(Icons.favorite),
+    ),
+    new Tab(
+      icon: new Icon(Icons.email),
+    ),
+    new Tab(
+      icon: new Icon(Icons.laptop),
+    ),
+  ];
+
   TabController tabController;
 
   @override
@@ -43,25 +55,13 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> tabList = [
-      new Tab(
-        icon: new Icon(Icons.favorite),
-      ),
-      new Tab(
-        icon: new Icon(Icons.email),
-      ),
-      new Tab(
-        icon: new Icon(Icons.laptop),
-      ),
-    ];
-
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("BottomAppBar"),
       ),
       body: new TabBarView(
         controller: tabController,
-        children: tabList,
+        children: tabPages,
       ),
       bottomNavigationBar: new Material(
         color: Colors.red,
