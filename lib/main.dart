@@ -27,12 +27,15 @@ class _HomePageState extends State<HomePage>
   List<Widget> tabList = [
     new Tab(
       icon: new Icon(Icons.favorite),
+      text: "First",
     ),
     new Tab(
       icon: new Icon(Icons.email),
+      text: "Second",
     ),
     new Tab(
       icon: new Icon(Icons.laptop),
+      text: "Third",
     ),
   ];
 
