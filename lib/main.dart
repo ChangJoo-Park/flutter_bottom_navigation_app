@@ -55,21 +55,25 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("BottomAppBar"),
-      ),
-      body: new TabBarView(
+    AppBar appBar = new AppBar(
+      title: new Text("BottomAppBar"),
+    );
+    TabBarView body = new TabBarView(
+      controller: tabController,
+      children: tabPages,
+    );
+    Material bottomNavigationBar = new Material(
+      color: Colors.red,
+      child: new TabBar(
         controller: tabController,
-        children: tabPages,
+        tabs: tabList,
       ),
-      bottomNavigationBar: new Material(
-        color: Colors.red,
-        child: new TabBar(
-          controller: tabController,
-          tabs: tabList,
-        ),
-      ),
+    );
+
+    return new Scaffold(
+      appBar: appBar,
+      body: body,
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }
