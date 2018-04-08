@@ -19,13 +19,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+  List<Widget> tabPages = [
+    new ScrollablePage(),
+    new FlatPage("Second"),
+    new FlatPage("Third"),
+  ];
   TabController tabController;
 
   @override
   void initState() {
     super.initState();
     tabController = new TabController(
-      length: 3,
+      length: tabPages.length,
       vsync: this,
     );
   }
@@ -38,33 +43,31 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> tabList = [
+      new Tab(
+        icon: new Icon(Icons.favorite),
+      ),
+      new Tab(
+        icon: new Icon(Icons.email),
+      ),
+      new Tab(
+        icon: new Icon(Icons.laptop),
+      ),
+    ];
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("BottomAppBar"),
       ),
       body: new TabBarView(
         controller: tabController,
-        children: <Widget>[
-          new ScrollablePage(),
-          new FlatPage("Second"),
-          new FlatPage("Third"),
-        ],
+        children: tabList,
       ),
       bottomNavigationBar: new Material(
         color: Colors.red,
         child: new TabBar(
           controller: tabController,
-          tabs: <Widget>[
-            new Tab(
-              icon: new Icon(Icons.favorite),
-            ),
-            new Tab(
-              icon: new Icon(Icons.email),
-            ),
-            new Tab(
-              icon: new Icon(Icons.laptop),
-            ),
-          ],
+          tabs: tabList,
         ),
       ),
     );
