@@ -2,7 +2,7 @@ import "dart:async";
 
 import "package:flutter/material.dart";
 
-import "../components/list-label.dart";
+import "../models/list-item.dart";
 
 class ScrollablePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -35,110 +35,49 @@ class ScrollablePage extends StatelessWidget {
       body: new RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: _handleRefresh,
-        child: new ListView(
-          children: <Widget>[
-            new ListLabel('LIST LABEL'),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-              onTap: () => print('hello'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListLabel('TESTING'),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('Map'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.photo_album),
-              title: new Text('Album'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('Phone'),
-            ),
-          ],
-        ),
+        child: ItemList(dummyListItems),
       ),
     );
+  }
+}
+
+class ItemList extends StatelessWidget {
+  final List<ListItem> _listItem;
+
+  ItemList(this._listItem);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: _buildItems,
+      itemCount: _listItem.length,
+    );
+  }
+
+  Widget _buildItems(context, index) {
+    return ListItemWidget(_listItem[index]);
+  }
+}
+
+class ListItemWidget extends StatelessWidget {
+  final ListItem item;
+
+  const ListItemWidget(this.item);
+
+  Widget _buildTiles(BuildContext context, ListItem item) {
+    return new ListTile(
+      title: new Text(item.title),
+      subtitle: new Text(item.subtitle),
+      leading: new CircleAvatar(
+        child: new Text(item.number.toString()),
+        backgroundColor: item.backgroundColor,
+      ),
+      onTap: () => print('hello'),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildTiles(context, item);
   }
 }
