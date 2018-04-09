@@ -62,8 +62,7 @@ class _BottomNavigationAppState extends State<BottomNavigationApp>
 
   @override
   void dispose() {
-    for (NavigationIconView view in _navigationViews)
-      view.controller.dispose();
+    for (NavigationIconView view in _navigationViews) view.controller.dispose();
     super.dispose();
   }
 
