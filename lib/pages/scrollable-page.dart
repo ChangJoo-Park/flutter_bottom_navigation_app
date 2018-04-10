@@ -71,6 +71,7 @@ class ListItemWidget extends StatelessWidget {
       leading: new CircleAvatar(
         child: new Text(item.number.toString()),
         backgroundColor: item.backgroundColor,
+        foregroundColor: Colors.white,
       ),
       onTap: () => print('hello'),
     );
