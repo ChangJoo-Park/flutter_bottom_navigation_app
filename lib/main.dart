@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import "pages/flat-page.dart";
 import 'pages/scrollable-page.dart';
+import 'pages/stats-page.dart';
 import 'components/navigation-icon-view.dart';
 
 void main() => runApp(
@@ -31,7 +32,7 @@ class _BottomNavigationAppState extends State<BottomNavigationApp>
       new NavigationIconView(
         icon: const Icon(Icons.show_chart),
         title: 'Stats',
-        page: new ScrollablePage(),
+        page: new StatsPage(),
         vsync: this,
       ),
       new NavigationIconView(
@@ -43,7 +44,7 @@ class _BottomNavigationAppState extends State<BottomNavigationApp>
       new NavigationIconView(
         icon: const Icon(Icons.book),
         title: 'Reservations',
-        page: new FlatPage('Reservations'),
+        page: new ScrollablePage(),
         vsync: this,
       ),
       new NavigationIconView(
