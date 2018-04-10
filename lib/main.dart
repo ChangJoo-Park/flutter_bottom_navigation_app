@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import "./pages/flat-page.dart";
-import './pages/scrollable-page.dart';
+import "pages/flat-page.dart";
+import 'pages/scrollable-page.dart';
 import 'components/navigation-icon-view.dart';
 
 void main() => runApp(

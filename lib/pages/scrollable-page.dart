@@ -35,7 +35,7 @@ class ScrollablePage extends StatelessWidget {
       body: new RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: _handleRefresh,
-        child: ItemList(dummyListItems),
+        child: new ItemList(dummyListItems),
       ),
     );
   }
@@ -48,14 +48,14 @@ class ItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return new ListView.builder(
       itemBuilder: _buildItems,
       itemCount: _listItem.length,
     );
   }
 
   Widget _buildItems(context, index) {
-    return ListItemWidget(_listItem[index]);
+    return new ListItemWidget(_listItem[index]);
   }
 }
 
